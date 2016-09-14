@@ -1,0 +1,43 @@
+use system;
+CREATE TABLE `users` (
+	`user_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
+	`user_name` VARCHAR(50) NOT NULL DEFAULT '' COMMENT '账号',
+	`user_nick` VARCHAR(20) NOT NULL DEFAULT '' COMMENT '昵称',
+	`user_pass` VARCHAR(32) NOT NULL DEFAULT '' COMMENT '密码',
+	`user_salt` VARCHAR(32) NOT NULL DEFAULT '' COMMENT 'salt',
+	`user_status` ENUM('0','-1') NOT NULL DEFAULT '0' COMMENT '状态',
+	`createtime` DATETIME NOT NULL COMMENT '入库时间',
+	PRIMARY KEY (`user_id`),
+	UNIQUE INDEX `user_name` (`user_name`)
+)ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+insert into users(user_name,user_nick,user_pass,user_salt,createtime)values('waylin','kang','88c217033f3285af1973e0a146964a31','930624',now()),('lainey','gong','ff99f343fa6ba84d3a514594a8483fcc','900915',now());
+
+use blog;
+CREATE TABLE `tags` (
+	`tag_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
+	`tag_type` INT(11) NOT NULL DEFAULT '0' COMMENT '类型 0文章 1图片',
+	`tag_name` VARCHAR(50) NOT NULL DEFAULT '' COMMENT '名称',
+	`tag_order` INT(11) NOT NULL DEFAULT '0' COMMENT '排序',
+	`tag_status` ENUM('0','-1') NOT NULL DEFAULT '0' COMMENT '状态',
+	`createtime` DATETIME NOT NULL COMMENT '入库时间',
+	PRIMARY KEY (`tag_id`),
+	UNIQUE INDEX `user_name` (`tag_name`)
+)ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+insert into tags(tag_name,tag_order,createtime)values('linux',1,now()),('nodejs',2,now()),('javascript',3,now()),('html/css',4,now()),('随记',5,now());
+
+use blog;
+CREATE TABLE `articles` (
+	`art_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
+	`art_title` VARCHAR(100) NOT NULL DEFAULT '' COMMENT '标题',
+	`tag_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' COMMENT '标签id',
+	`tag_name` VARCHAR(50) NOT NULL DEFAULT '' COMMENT '标签',
+	`art_content` TEXT NOT NULL COMMENT '内容',
+	`user_id` INT(10) UNSIGNED NOT NULL COMMENT '用户ID',
+    `user_name` VARCHAR(50) NOT NULL DEFAULT '' COMMENT '账号',
+    `art_status` ENUM('0','-1') NOT NULL DEFAULT '0' COMMENT '状态',
+	`createtime` DATETIME NOT NULL COMMENT '入库时间',
+	PRIMARY KEY (`art_id`)
+)ENGINE=MyISAM DEFAULT CHARSET=utf8;

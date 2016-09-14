@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/admin_index.css" />
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/template.js"></script>
+    <script type="text/javascript" src="/javascripts/common_js.js"></script>
+</head>
+<body>
+<div class="page-wrapper">
+    <div class="main-sidebar">
+        <span class="main-logo">
+            <a href="javascript:void(0);">KFamily</a>
+        </span>
+        <div class="side-menu">
+            <ul class="level-1-menu">
+                <li class="dashboard-li">
+                    <a href="/admin/index" data-type="nav" data-isleaf="true" class="active">
+                        <i class="icon-service-dashboard icon-service"></i>
+                        <span class="menu-title">总览页</span>
+                    </a>
+                </li>
+                <li id="article">
+                    <a href="javascript:void(0);" data-type="nav" onclick="open_level('article');">
+                        <i class="icon-mc-arrow"></i>
+                        <i class="icon-service-article icon-service"></i>
+                        <span class="menu-title">日志管理</span>
+                    </a>
+                    <ul class="level-2-menu">
+                        <li>
+                            <a href="/admin/w_art" data-type="nav" data-isleaf="true" >
+                                <span class="menu-title">写日志</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/w_art" data-type="nav" data-isleaf="true" >
+                                <span class="menu-title">写日志</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" data-type="nav" data-isleaf="true" >
+                        <i class="icon-service-photo icon-service"></i>
+                        <span class="menu-title">图片管理</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="main-top-nav">
+            <a class="quit" href="/quit">退出</a>
+        </div>

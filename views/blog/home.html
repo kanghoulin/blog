@@ -1,0 +1,41 @@
+<%include ./layout/header.html%>
+<div class="content">
+    <div class="left" id="article_list">
+        <% article.forEach(function(item){ %>
+        <article>
+            <h3><a href="/art_info?art_id=<%=item.art_id%>"><%=item.art_title%></a></h3>
+            <h4>
+                <span  style="float:left;">栏目 </span>
+                <a style="float:left;" href="javascript:void(0);" onclick="article_by_tag('<%=item.tag_id%>');"><%=item.tag_name%></a>
+                <div style="clear:both;"></div>
+            </h4>
+            <div class="article_content">
+                <a href="/art_info?art_id=<%=item.art_id%>"><p><%=item.art_content%></p></a>
+            </div>
+            <a style="float:right; color:#0e90d2;" href="/art_info?art_id=<%=item.art_id%>">阅读全文➸ </a>
+            <div style="clear:both;"></div>
+        </article>
+        <hr>
+        <% }) %>
+    </div>
+    <div class="right">
+        <section>
+            <div class="category">关于我</div>
+            <div class="me">
+                <p>爱我所爱</p>
+                <a href="javascript:void(0);">查看更多 →</a>
+            </div>
+        </section>
+        <section>
+            <div class="category">标签</div>
+            <ul class="tag-ul">
+                <% tag.forEach(function(item){ %>
+                <li><a href="javascript:void(0);" onclick="article_by_tag('<%=item.tag_id%>');"><%=item.tag_name%></a></li>
+                <% }) %>
+            </ul>
+        </section>
+    </div>
+    <div style="clear:both;">
+    </div>
+</div>
+<%include ./layout/footer.html%>

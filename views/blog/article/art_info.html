@@ -1,0 +1,45 @@
+<%include ../layout/header.html%>
+<div class="content">
+    <div class="left">
+        <% if(article.art_title){ %>
+        <article>
+            <h3><a><%=article.art_title%></a></h3>
+            <h4>
+                <span  style="float:left;">栏目 </span>
+                <a style="float:left;" href="javascript:void(0);"><%=article.tag_name%></a>
+                <div style="clear:both;"></div>
+            </h4>
+            <div><%-article.art_content%></div>
+        </article>
+        <hr>
+        <% } %>
+    </div>
+    <div class="right">
+        <section>
+            <div class="category">关于我</div>
+            <div class="me">
+                <p>爱我所爱</p>
+                <a href="javascript:void(0);">查看更多 →</a>
+            </div>
+        </section>
+        <section>
+            <div class="category">标签</div>
+            <ul class="tag-ul">
+                <% tag.forEach(function(item){ %>
+                <li><a href="javascript:void(0);" tag_id="<%=item.tag_id%>"><%=item.tag_name%></a></li>
+                <% }) %>
+            </ul>
+        </section>
+    </div>
+    <div style="clear:both;">
+    </div>
+</div>
+<script>
+    $(function(){
+        initialize();
+    })
+    function initialize(){
+
+    }
+</script>
+<%include ../layout/footer.html%>

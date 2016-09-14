@@ -1,0 +1,74 @@
+<%include ../layout/header.html%>
+<meta charset="utf-8" />
+<style>
+    form {
+        margin: 0;
+    }
+    textarea {
+        display: block;
+    }
+</style>
+<link rel="stylesheet" href="../../kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="../../kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="../../kindeditor/lang/zh_CN.js"></script>
+<script>
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="content"]', {
+            resizeType : 1,
+            allowPreviewEmoticons : false,
+            allowImageUpload : false,
+            minWidth : 500,
+            items : [
+                'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+                'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+                'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+        });
+    });
+</script>
+<div class="main-content">
+    <div>
+        <label>文章标题：</label>
+        <input id="art_title" value="" />
+    </div>
+    <div>
+        <label class="control-label no-padding-right">公告类型：</label>
+        <select id="sel_tag" class="width-10 align-left" type="text">
+            <% tag.forEach(function(item){%>
+            <option value="<%=item.tag_id%>" art_name="<%=item.tag_name%>"><%=item.tag_name%></option>
+            <% })%>
+        </select>
+    </div>
+    <div>
+        <form>
+            <textarea id="art_content" name="content" class="form-control" style="width:538px;" rows="20" placeholder=""></textarea>
+        </form>
+    </div>
+    <div>
+        <button onclick="save_article();">保存</button>
+    </div>
+</div>
+<script>
+    $(function(){
+
+    })
+    function save_article(){
+        editor.sync();
+        var pars = {
+            art_title:$("#art_title").val(),
+            tag_id:$("#sel_tag").find("option:selected").val(),
+            tag_name:$("#sel_tag").find("option:selected").attr("art_name"),
+            art_content:$("#art_content").val(),
+            user_id:1,
+            user_name:'waylin'
+        };
+        sam_ajaxsend('/admin/w_art', pars, function (r) {
+            if(r.code==0){
+                alert(r.message);
+            }else{
+                alert(r.message);
+            }
+        });
+    }
+</script>
+<%include ../layout/footer.html%>

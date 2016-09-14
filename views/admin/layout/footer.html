@@ -1,0 +1,27 @@
+</div>
+</div>
+<script>
+    $(function(){
+        initialize();
+    })
+    function initialize(){
+        var l1_a = $(".level-1-menu a");
+        for(var i in l1_a){
+            if(l1_a[i].dataset["type"] == "nav" && l1_a[i].dataset["isleaf"] == "true"){
+                l1_a[i].onclick = function(){
+                    l1_a.removeClass("active");
+                    $(this).addClass("active");
+                }
+            }
+        }
+    }
+    function open_level(id){
+        if($("#"+id).attr("class") == 'li-open'){
+            $("#"+id).removeClass("li-open");
+        }else{
+            $("#"+id).addClass("li-open");
+        }
+    }
+</script>
+</body>
+</html>

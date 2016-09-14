@@ -1,0 +1,20 @@
+<div class="footer">
+    <p>友链：<a href="/home">KFamily</a></p>
+    <p>2016 kfamily.cc 版权所有 私人学习</p>
+</div>
+<script>
+    $(function(){
+        var canvas_list = ['blocks','firefly','fireworks','flashs','flowers','honeycombs','milkyway','rotation','sky','stars'];
+        $("#mh").attr("src",'/canvas/'+canvas_list[0]);
+        setInterval(function(){
+            var index = rand_num(0,canvas_list.length-1);
+            $("#mh").attr("src",'/canvas/'+canvas_list[index]);
+        },10*1000);
+    })
+    function rand_num(min,max){
+        var num = Math.random()*(max-min);
+        return min+Math.round(num);
+    }
+</script>
+</body>
+</html>

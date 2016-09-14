@@ -1,0 +1,145 @@
+body, html {
+    height: 100%;
+    min-width: 1200px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    position: relative;
+    background-color: #27303f;
+}
+body, h1, h2, h3, h4, h5, h6, dl, dt, dd, ol, ul, li, p, form, legend, button, select, input, textarea, table {
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+.quit{
+    position: relative;
+    float: right;
+    height: 100%;
+    padding: 0 18px;
+}
+.page-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+}
+.main-sidebar {
+    height: 100%;
+    padding-top: 14px;
+    width: 180px;
+    background: #363636;
+}
+.main-logo {
+    height: 36px;
+    margin-left: 20px;
+    display: block;
+}
+.side-menu {
+    color: #fff;
+    font-size: 14px;
+    overflow: auto;
+    height: 100%;
+}
+.side-menu a {
+    color: #fff;
+    display: block;
+}
+li {
+    list-style: none;
+}
+.level-1-menu li {
+    line-height: 40px;
+}
+.side-menu .menu-title {
+    padding-left: 10px;
+}
+.dashboard-li {
+    border-bottom: 1px solid #464646;
+    border-top: 1px solid #464646;
+}
+.icon-service-dashboard {
+    background-image: url(/images/ico.png);
+    background-position: -111px -51px;
+}
+.icon-service-article {
+    background-image: url(/images/ico.png);
+    background-position: -42px -72px;
+}
+.icon-service-photo {
+    background-image: url(/images/ico.png);
+    background-position: -63px -72px;
+}
+.icon-service {
+    width: 18px;
+    margin-top: 10px;
+    height: 18px;
+    float: left;
+    margin-left: 20px;
+}
+.icon-mc-arrow {
+    width: 10px;
+    margin: 18px 20px 0 0;
+    height: 6px;
+    float: right;
+    background-image: url(/images/ico.png);
+    background-position: -124px -104px;
+}
+
+.side-menu a.active {
+    color: #22b5e5;
+    background: #212121;
+    border-left: 2px solid #22b5e5;
+}
+
+.dashboard-li a.active {
+    margin-bottom: -1px;
+    margin-top: -1px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+}
+
+
+.side-menu .level-2-menu {
+    display: none;
+}
+.li-open {
+    background: #212121;
+}
+.li-open .level-2-menu{
+    display: block;
+}
+.level-2-menu .menu-title {
+    padding-left: 48px;
+}
+.li-open a:hover .icon-mc-arrow {
+    background-image: url(/images/ico.png);
+    background-position: -111px -114px;
+}
+
+
+.content {
+    overflow: hidden;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 180px;
+    transition: left .3s;
+}
+
+.main-top-nav {
+    background: #f7f7f7;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.main-content{
+    padding: 18px;
+}
